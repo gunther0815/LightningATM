@@ -21,8 +21,8 @@ fi
 if [ "$1" = "1" ] || [ "$1" = "on" ]; then
   echo "*** INSTALL STACKING-SATS-KRAKEN ***"
 
-  isInstalled=$(sudo ls $HOME_DIR 2>/dev/null | grep -c 'stacking-sats-kraken')
-  if [ ${isInstalled} -eq 0 ]; then
+  # isInstalled=$(sudo ls $HOME_DIR 2>/dev/null | grep -c 'stacking-sats-kraken')
+  # if [ ${isInstalled} -eq 0 ]; then
 
     # install nodeJS
     # /home/pi/config.scripts/bonus.nodejs.sh on
@@ -128,21 +128,21 @@ fi
 
     # setting value in raspi blitz config
     # /home/pi/config.scripts/blitz.conf.sh set stackingSatsKraken "on"
-  else
-    echo "STACKING-SATS-KRAKEN already installed."
-  fi
+  # else
+  #   echo "STACKING-SATS-KRAKEN already installed."
+  # fi
 
-  cron_count=$(sudo -u $USERNAME crontab -l | grep "$SCRIPT_DIR/$SCRIPT_NAME" -c)
-  if [ "${cron_count}" = "0" ]; then
-    echo ""
-    echo "You might want to set up a cronjob to run the script in regular intervals."
-    echo "As the '$USERNAME' user you can run the 'crontab -e' command."
-    echo ""
-    echo "Here is an example for daily usage at 6:15am ..."
-    echo ""
-    echo "SHELL=/bin/bash"
-    echo "PATH=/bin:/usr/sbin:/usr/bin:/usr/local/bin"
-    echo "15 6 * * * $SCRIPT_DIR/$SCRIPT_NAME > /dev/null 2>&1"
+  # cron_count=$(sudo -u $USERNAME crontab -l | grep "$SCRIPT_DIR/$SCRIPT_NAME" -c)
+  # if [ "${cron_count}" = "0" ]; then
+  #  echo ""
+  #  echo "You might want to set up a cronjob to run the script in regular intervals."
+  #  echo "As the '$USERNAME' user you can run the 'crontab -e' command."
+  #  echo ""
+  #  echo "Here is an example for daily usage at 6:15am ..."
+  #  echo ""
+  #  echo "SHELL=/bin/bash"
+  #  echo "PATH=/bin:/usr/sbin:/usr/bin:/usr/local/bin"
+  #  echo "15 6 * * * $SCRIPT_DIR/$SCRIPT_NAME > /dev/null 2>&1"
   fi
 
   exit 0
