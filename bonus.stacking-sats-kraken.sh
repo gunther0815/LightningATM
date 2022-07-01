@@ -25,7 +25,7 @@ if [ "$1" = "1" ] || [ "$1" = "on" ]; then
   if [ ${isInstalled} -eq 0 ]; then
 
     # install nodeJS
-    /home/pi/config.scripts/bonus.nodejs.sh on
+    /home/pi/bonus.nodejs.sh on
 
     # add user
     sudo adduser --disabled-password --gecos "" $USERNAME
