@@ -25,7 +25,7 @@ if [ "$1" = "1" ] || [ "$1" = "on" ]; then
   if [ ${isInstalled} -eq 0 ]; then
 
     # install nodeJS
-    /home/admin/config.scripts/bonus.nodejs.sh on
+    /home/pi/LightningATM/config.scripts/bonus.nodejs.sh on
 
     # add user
     sudo adduser --disabled-password --gecos "" $USERNAME
@@ -48,7 +48,7 @@ if [ "$1" = "1" ] || [ "$1" = "on" ]; then
     sudo chown $USERNAME:$USERNAME $APP_DATA_DIR
 
     if [[ ! -f "$CONFIG_FILE" ]]; then
-      configFile=/home/admin/stacking-sats-kraken.env
+      configFile=/home/pi/stacking-sats-kraken.env
       touch $configFile
       sudo chmod 600 $configFile || exit 1
 echo '# Required settings
@@ -85,7 +85,7 @@ KRAKEN_DRY_RUN_PLACE_NO_ORDER=1
     sudo chown $USERNAME:$USERNAME $CONFIG_FILE
 
     # setup stacking script
-    scriptFile="/home/admin/$SCRIPT_NAME"
+    scriptFile="/home/pi/$SCRIPT_NAME"
     touch $scriptFile
     sudo chmod 700 $scriptFile || exit 1
     echo '#!/bin/bash
@@ -127,7 +127,7 @@ fi
     echo "Switch to the '$USERNAME' user and adapt the settings in $CONFIG_FILE"
 
     # setting value in raspi blitz config
-    /home/admin/config.scripts/blitz.conf.sh set stackingSatsKraken "on"
+    /home/pi/config.scripts/blitz.conf.sh set stackingSatsKraken "on"
   else
     echo "STACKING-SATS-KRAKEN already installed."
   fi
